@@ -3,3 +3,14 @@ get '/' do
     erb(:index)
 
 end
+
+get '/signup' do
+    @user = User.new
+    erb(:signup)
+
+end
+
+post '/signup' do
+    "Form submitted!"
+
+end
