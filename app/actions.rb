@@ -11,6 +11,16 @@ get '/signup' do
 end
 
 post '/signup' do
-    "Form submitted!"
-
-end
+    email      = params[:email]
+    avatar_url = params[:avatar_url]
+    username   = params[:username]
+    password   = params[:password]
+  
+    @user = User.new({ email: email, avatar_url: avatar_url, username: username, password: password })
+  
+    if @user.save
+      "User #{username} saved!"
+    else
+      erb(:signup)
+    end
+  end
